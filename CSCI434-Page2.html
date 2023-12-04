@@ -22,83 +22,65 @@
             text-align: center;
         }
 
-
         #bodyf {
             text-align: center;
             padding: 20px;
         }
+
+        <script>
+        
+        function calculateTotal() {
+
+            var pencilType = document.getElementById("pencilType").value;
+            var quantity = document.getElementById("quantity").value;
+
+            // Define the prices for each pencil type
+            var prices = {
+                "standard": 2,   // Price for a standard pencil
+                "mechanical": 3     // Price for a premium pencil
+            };
+
+            // Calculate the total based on the selected pencil type and quantity
+            var total = prices[pencilType] * quantity;
+
+            // Display the total on the form
+            document.getElementById("total").innerText = "Total: $" + total.toFixed(2);
+        }
+    </script>
     </style>
 </head>
 <body>
 
     <div id="guidebar">
         <h1>Welcome to CSCI434 - Isaac Maynard</h1>
-        <p> Unit 2 - Unit 3 - Unit 4 - Unit 5 - Unit 6</p>
+        <p> <a href="https://isaacjoelm.github.io">Home</a>
+            - <a href="https://isaacjoelm.github.io/CSCI434-Page2.html">JavaScript Form</a> 
+            - <a href="https://isaacjoelm.github.io/CSCI434-Page3.html">How-To</a></p>
     </div>
 
     <div id="bodyf">
-        <h1>Unit 1 Assignment</h1>
-        
-        <p>Hello and welcome to my uhhh... website that is not really functional but it meets criteria!
-            I added some color so it's not so gawdy to look at, but honestly can't really tell what else is wanted from it.</p>
-            
-        <p>So as of right now, I plan to add hyperlinks up top at each of the unit's to go to the corresponding unit's work and show off there.
-            Ideally, this allows me to see the progression as I go, I'll update the top guidebar and everything as I go probably throughout the course.
-            It'll be cool to have our own space to work on this and figure it all out so we can grow and figure out more cool features to add as time goes on.
-        </p>
-
-        <p>So for my webhost, I'm using Git. I figured everyone these days is using GitHub in the programming realm so it would make sene for me to
-            get a little antiquated with the program. One of the major drawbacks though is the fact that any time I do anything I have to wait like 4 minutes
-            to even see what's updating on the website itself. 
-        </p>
-
-        <p>To bypass that, I'm using Visual Studio Code with a few HTML plugins to preview the content I'm creating and having helpful tips with different 
-            elements and syntax i'm not used to. From there I just put it into the index.html file for the website and check and make sure it's good. I'll show that below in a screenshot.
-        </p>
-
-        <p>So that's all I really have for now, if I missed the mark or you were looking for more, please let me know and I'll update all of this. Thank you!</p>
-
-        <img src="https://raw.githubusercontent.com/IsaacJoelM/isaacjoelm.github.io/main/Screenshot%202023-11-13%20003049.png" alt="Screenshot of Visual Studtio Code">
-    
-    
-        <h1>Unit 2 Assignment</h1>
-
-        <p>My name is Isaac Maynard, my wife Paityn and I have been married for almost 5 years. We have our son August who is 16 months, two dogs, two cats, and three chickens. We're expecting our daughter come February/March Timeframe. We're both pretty stoked about that.
-            For work, I'm an instructor in the Air Force for Air Transportation, teaching college equivalent courses and getting to travel a lot to teach. That's probably the best gig I could ask for in the Air Force haha.
-        </p>
-        
-        <p>I really don't have that many hobbies anymore, which I know sounds weird but I just sort of exist and enjoy life. My family is my main priority, but I do like to relax on the weekends and watch some football and Formula 1. For football, my favorite team is Alabama for college and Miami Dolphins for NFL. 
-            I spend some time on reddit, and all social media really. I never post or even comment on anyone's stuff, I'm just a mega lurker haha. So below will be some links to things I find pretty interesting, and hopefully you do too.
-        </p>
-
-        <a href="https://www.w3schools.com/">W3Schools</a> - <a href="https://ocw.mit.edu">MIT OpenCourseWare</a> - <a href="https://www.amazon.com/HTML-Dummies-Ed-Tittel/dp/076450214X">Books I can read (Not that I have, but I can if I wanted to)</a>
-        <p></p>
-        <img src="https://img2-azrcdn.newser.com/image/1430765-11-20220830084734-embedded-clippys-source-code-letters-tfc.jpeg">
-    
-        <h2>Please fill out the below form to complete Unit 2's Assignment:</h2>
-
+        <h1>Please input your order below:</h1>
         <form>
-            <label for="firstName">First Name:</label>
-                <input type="text" id="firstName" value=""><br>
-            <label for="lastName">Last Name:</label>
-                <input type="text" id="lastName" value=""><br>
-            Are you a student or teacher?<br>
-            <input type="radio" id="Student" name="roles" value="student">
-                <label for="student">Student</label> <br>
-            <input type="radio" id="Teacher" name="roles" value="teacher">
-                <label for="teacher">Teacher</label> <br>
-            <input type="radio" id="Lurker" name="roles" value="lurker">
-                <label for="lurker">I accidentally found this site.</label> <br>
-            <input type="button" value="Does this thing work"><br>
-            <input type="checkbox" id="yes" value="Yes">
-                <label for="yes">Yes</label><br>
-            <input type="checkbox" id="no" value="No">
-                <label for="no">No</label><br>
-            <input type="checkbox" id="idk" value="IDK">
-                <label for="idk">No way to tell</label><br>
-            <input type="submit" value="Submit Form">
-            
+            <label for="pencilType">Select Pencil Type:</label>
+                <select id="pencilType">
+                <option value="standard">Standard Pencil - $2</option>
+                <option value="premium">Premium Pencil - $3</option>
+                </select>
+        <br>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" placeholder="Enter quantity" min="1" oninput="calculateTotal()">
+        <br>
+
+        <button type="button" onclick="calculateTotal()">Calculate Total</button>
+        <br>
+
+        <p id="total"></p>
         </form>
+        <p>Discounts applied at checkout:<br>
+        Orders of $100 and greater - 5% <br>
+        Orders of $250 and greater - 7% <br>
+        Orders of $1000 and greater - 10%</p>
     </div>
 
 </body>
