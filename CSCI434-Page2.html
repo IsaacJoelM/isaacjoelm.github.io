@@ -43,10 +43,20 @@
             };
 
             // Calculate the total based on the selected pencil type and quantity
-            var total = prices[pencilType] * quantity;
+            var subtotal = prices[pencilType] * quantity;
 
+            var discount = 0;
+            if (subtotal > 1000) {
+                discount = subtotal * 0.1; // 10% discount for amounts over $1000
+            } else if (subtotal > 250) {
+                discount = subtotal * 0.07; // 7% discount for amounts over $250
+            } else if (subtotal > 100) {
+                discount = subtotal * 0.05; // 5% discount for amounts over $100
+            }
+
+        var total = subtotal - discount;
             // Display the total on the form
-            document.getElementById("total").innerText = "Total: $" + total.toFixed(2);
+            document.getElementById("total").innerText = "Total: $" + total.toFixed(2) + "($" + discount.toFixed(2) + " discount applied)";
         }
     </script>
 </head>
@@ -70,12 +80,12 @@
         <br>
 
         <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" placeholder="Enter quantity" min="1" oninput="calculateTotal()">
+        <input type="number" id="quantity" placeholder="Enter quantity" min="1">
         <br>
 
         <button type="button" onclick="calculateTotal()">Calculate Total</button>
         <br>
-        <p>Your Total Is:</p>
+            
         <p id="total"></p>
         </form>
         <p>Discounts applied at checkout:<br>
