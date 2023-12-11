@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Queue Management System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSCI434 Isaac Maynard - Queue-List</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #333; /* Dark grey background for the body */
+            color: #fff; /* White text color for the body */
     }
+
+    #guidebar {
+            background-color: #154e61; /* Blue background for the top guidebar */
+            padding: 10px;
+            text-align: center;
+        }
 
     #container {
       display: flex;
@@ -28,6 +33,7 @@
       flex: 1;
       padding: 20px;
       box-sizing: border-box;
+      background-color: #767070;
     }
 
     #queue-list {
@@ -59,30 +65,40 @@
         queueList.removeChild(queueList.firstChild);
       }
     }
-  </script>
+    </script>
 
 </head>
 <body>
 
+<div id="guidebar">
+        <h1>CSCI 434 - Queue List</h1>
+        <p> <a href="https://isaacjoelm.github.io">Home</a>
+            - <a href="https://isaacjoelm.github.io/CSCI434-Page2.html">JavaScript Form</a> 
+            - <a href="https://isaacjoelm.github.io/CSCI434-Page3.html">How-To</a>
+            - <a href="https://isaacjoelm.github.io/QueList.html"></a>Queue List</a></p>
+</div>
 <div id="container">
   <div id="form-container">
     <h2>Enter Your Information</h2>
     <form id="queueForm">
       <label for="name">Name:</label>
       <input type="text" id="name" required>
+        <br>
 
       <label for="email">Email:</label>
       <input type="email" id="email" required>
+        <br>
 
       <label for="phone">Phone Number:</label>
       <input type="tel" id="phone" required>
+        <br>
 
       <button type="button" onclick="addToQueue()">Submit</button>
     </form>
   </div>
 
   <div id="list-container">
-    <h2>Currently Serving</h2>
+    <h2>Currently Serving:</h2>
     <ul id="queue-list"></ul>
     <button onclick="clearFirst()">Clear First</button>
   </div>
