@@ -44,6 +44,7 @@
   
       var listItem = document.createElement('li');
       listItem.textContent = name;
+      listItem.setAttribute('title', 'Email: ' + email + '\nPhone: ' + phone);
       document.getElementById('queue-list').appendChild(listItem);
   
       // Clear the form fields
