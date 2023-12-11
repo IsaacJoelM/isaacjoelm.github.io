@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Queue Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #container {
+      display: flex;
+    }
+
+    #form-container {
+      flex: 1;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    #list-container {
+      flex: 1;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    #queue-list {
+      list-style: none;
+      padding: 0;
+    }
+  </style>
+
+    <script>
+    function addToQueue() {
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var phone = document.getElementById('phone').value;
+  
+      var listItem = document.createElement('li');
+      listItem.textContent = name;
+      document.getElementById('queue-list').appendChild(listItem);
+  
+      // Clear the form fields
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('phone').value = '';
+    }
+  
+    function clearFirst() {
+      var queueList = document.getElementById('queue-list');
+      if (queueList.firstChild) {
+        queueList.removeChild(queueList.firstChild);
+      }
+    }
+  </script>
+
+</head>
+<body>
+
+<div id="container">
+  <div id="form-container">
+    <h2>Enter Your Information</h2>
+    <form id="queueForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" required>
+
+      <button type="button" onclick="addToQueue()">Submit</button>
+    </form>
+  </div>
+
+  <div id="list-container">
+    <h2>Currently Serving:</h2>
+    <ul id="queue-list"></ul>
+    <button onclick="clearFirst()">Clear First</button>
+  </div>
+</div>
+
+
+</body>
+</html>
